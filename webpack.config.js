@@ -46,13 +46,13 @@ module.exports = {
     },
   },
   output: {
-    publicPath: './',
+    // publicPath: './',
     path: path.resolve(__dirname, 'dist'),
     filename: 'index.js',
   },
   devServer: {
     static: {
-      directory: path.join(__dirname, 'dist'),
+      directory: path.join(__dirname, 'public'),
     },
     compress: true,
     port: 3000,
