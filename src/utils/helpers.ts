@@ -7,5 +7,5 @@ export const handleApiResponse = (response: any) => {
 };
 
 export const getHeaders = async (headers?: object) => ({
-  ...headers
-});
+  ...headers,
+})

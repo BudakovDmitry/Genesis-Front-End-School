@@ -10,7 +10,7 @@ export const router = createHashRouter([
     errorElement: <Error />,
   },
   {
-    path: '/course',
+    path: '/:id',
     element: <Course />,
   },
 ])

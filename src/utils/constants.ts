@@ -1,1 +1,1 @@
-export const API = 'http://api.wisey.app/api.v1/core';
+export const API = 'http://api.wisey.app/api/v1/core';

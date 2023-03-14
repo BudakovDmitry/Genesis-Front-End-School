@@ -4,7 +4,6 @@
   "main": "index.js",
   "repository": "git@github.com:BudakovDmitry/Genesis-Front-End-School.git",
   "author": "Budakov Dmitry <budakov.it@gmail.com>",
-  "homepage": "https://budakovdmitry.github.io/Genesis-Front-End-School",
   "license": "MIT",
   "scripts": {
     "start": "webpack serve",
@@ -21,7 +20,8 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.8.1",
     "react-toastify": "^9.1.1",
-    "styled-components": "^5.3.6"
+    "styled-components": "^5.3.6",
+    "swr": "^2.1.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.26",

@@ -1,3 +1,3 @@
 export enum Endpoints {
-  COURSES = '/preview-courses',
+  COURSES = '/preview-courses'
 }
