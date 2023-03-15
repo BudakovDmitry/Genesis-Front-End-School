@@ -7,34 +7,43 @@ import Box from '@mui/material/Box'
 import { CourseType } from 'src/types'
 
 const AllCourses = () => {
-  const { data, isLoading } = useAllCourses()
+  const {
+    courses,
+    isLoading,
+    ITEMS_PER_PAGE,
+    onChangePage,
+    currentPage,
+    countCourses,
+  } = useAllCourses()
 
-  if (isLoading) return <Loader />
-
-  console.log(data.courses)
+  if (isLoading || !courses) return <Loader />
 
   return (
     <Styled.AllCoursesContainer>
       <Styled.AllCoursesTitle>All Courses</Styled.AllCoursesTitle>
       <Styled.CoursesPreview>
-        {data.courses.slice(0, 9).map((course: CourseType) => (
-          <CoursePreview
-            key={course.id}
-            previewImageLink={course.previewImageLink}
-            title={course.title}
-            description={course.description}
-            lessonsCount={course.lessonsCount}
-            rating={course.rating}
-            skills={course.meta.skills}
-          />
-        ))}
+        {courses.map(
+          (course: CourseType): JSX.Element => (
+            <CoursePreview
+              key={course.id}
+              previewImageLink={course.previewImageLink}
+              title={course.title}
+              description={course.description}
+              lessonsCount={course.lessonsCount}
+              rating={course.rating}
+              skills={course.meta.skills}
+            />
+          ),
+        )}
       </Styled.CoursesPreview>
       <Box sx={{ display: 'flex', justifyContent: 'center' }}>
         <Pagination
-          count={10}
+          count={countCourses ? Math.ceil(countCourses / ITEMS_PER_PAGE) : 0}
           variant="outlined"
           shape="rounded"
           size="large"
+          page={currentPage}
+          onChange={(event, newPage) => onChangePage(newPage)}
         />
       </Box>
     </Styled.AllCoursesContainer>

@@ -1,12 +1,36 @@
-import { usePage } from "src/hooks/usePage"
+import { useState, useEffect } from 'react'
 import { useCourses } from "src/hooks/useCourses"
+import { CourseType } from 'src/types'
 
 export const useAllCourses = () => {
-  const { navigate } = usePage()
   const { data, isLoading } = useCourses();
+  const ITEMS_PER_PAGE: number = 10;
+  const [currentPage, setCurrentPage] = useState<number>(1)
+  const [slicedCourses, setSlicedCourses] = useState([] as CourseType[])
 
-    return {
-      data,
-      isLoading
+  const onChangePage = (newPage: number): void => {
+    setCurrentPage(newPage)
+  }
+
+  const sliceCourses = (): void => {
+    if (currentPage === 1) {
+      setSlicedCourses(data?.courses.slice(0, ITEMS_PER_PAGE))
     }
+    if (currentPage !== 1) {
+      setSlicedCourses(data?.courses.slice(ITEMS_PER_PAGE * (currentPage - 1), ITEMS_PER_PAGE * currentPage))
+    }
+  }
+
+  useEffect(() => {
+    sliceCourses()
+  }, [currentPage])
+
+  return {
+    courses: slicedCourses ? slicedCourses : data?.courses.slice(0, ITEMS_PER_PAGE),
+    countCourses: data?.courses.length,
+    isLoading,
+    ITEMS_PER_PAGE,
+    currentPage,
+    onChangePage
+  }
 }
