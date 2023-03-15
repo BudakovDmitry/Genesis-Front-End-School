@@ -31,7 +31,7 @@ const CoursePreview = ({
         <Styled.CoursePreviewTitle>{title}</Styled.CoursePreviewTitle>
         <Styled.CoursePreviewRating>
           <Box mr={1}>
-            <Rating name="read-only" value={rating} readOnly />
+            <Rating name="read-only" value={rating} readOnly precision={0.5} />
           </Box>
           <Styled.CoursePreviewRatingText
             color={rating < 3 ? 'red' : rating < 4 ? 'orange' : 'green'}
