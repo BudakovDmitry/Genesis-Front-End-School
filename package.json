@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "repository": "git@github.com:BudakovDmitry/Genesis-Front-End-School.git",
+  "homepage": "https://budakovdmitry.github.io/Genesis-Front-End-School",
   "author": "Budakov Dmitry <budakov.it@gmail.com>",
   "license": "MIT",
   "scripts": {
@@ -29,6 +30,7 @@
     "@typescript-eslint/eslint-plugin": "^5.48.0",
     "@typescript-eslint/parser": "^5.48.0",
     "css-loader": "^6.7.3",
+    "dotenv-webpack": "^8.0.1",
     "eslint": "^8.31.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^8.6.0",

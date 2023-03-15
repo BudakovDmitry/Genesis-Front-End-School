@@ -1,3 +1,4 @@
 export enum Endpoints {
-  COURSES = '/preview-courses'
+  COURSES = '/core/preview-courses',
+  AUTH = '/auth/anonymous?platform=subscriptions'
 }
