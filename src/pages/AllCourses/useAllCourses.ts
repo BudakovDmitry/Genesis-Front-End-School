@@ -3,9 +3,10 @@ import { useCourses } from "src/hooks/useCourses"
 
 export const useAllCourses = () => {
   const { navigate } = usePage()
-  const { courses, mutate } = useCourses();
+  const { data, isLoading } = useCourses();
 
     return {
-      courses
+      data,
+      isLoading
     }
 }

@@ -4,10 +4,10 @@ import useSWR from 'swr';
 
 export const useCourses = (searchParams: string = '') => {
   const {
-    data: courses,
-    mutate,
+    data,
+    isLoading,
     error
   } = useSWR(() => API + Endpoints.COURSES);
 
-  return { courses, mutate, error };
+  return { data, isLoading, error };
 };
