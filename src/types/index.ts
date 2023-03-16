@@ -28,3 +28,20 @@ export type CourseVideoPreviewType = {
   duration: number
   previewImageLink: string
 }
+
+export type LessonType = {
+  id: string
+  title: string
+  duration: number
+  order: number
+  type: string
+  status: string
+  link: string
+  previewImageLink: string
+  meta: number | null
+}
+
+export enum StatusLesson {
+  UNLOCKED = 'unlocked',
+  LOCKED = 'locked'
+}

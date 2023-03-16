@@ -14,6 +14,7 @@ const AllCourses = () => {
     onChangePage,
     currentPage,
     countCourses,
+    openCourse,
   } = useAllCourses()
 
   if (isLoading || !courses) return <Loader />
@@ -32,6 +33,8 @@ const AllCourses = () => {
               lessonsCount={course.lessonsCount}
               rating={course.rating}
               skills={course.meta.skills}
+              openCourse={openCourse}
+              id={course.id}
             />
           ),
         )}

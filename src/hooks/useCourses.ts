@@ -7,7 +7,7 @@ export const useCourses = (searchParams: string = '') => {
     data,
     isLoading,
     error
-  } = useSWR(() => API + Endpoints.COURSES);
+  } = useSWR(() => `${API}${Endpoints.COURSES}${searchParams}`);
 
   return { data, isLoading, error };
 };

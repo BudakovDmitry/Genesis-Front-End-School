@@ -1,7 +1,13 @@
 import { useEffect, useState } from "react"
-export const useCourse = () => {
-    
-    return {
+import { usePage } from 'src/hooks/usePage'
+import { useCourses } from "src/hooks/useCourses"
 
+export const useCourse = () => {
+    const { params } = usePage()
+    const { data, isLoading } = useCourses(`/${params.id}`);
+
+    return {
+        course: data,
+        isLoading
     }
 }

@@ -6,21 +6,25 @@ import Button from '@mui/material/Button'
 import Box from '@mui/material/Box'
 
 type CoursePreviewProps = {
+  id: string
   title: string
   description: string
   lessonsCount: number
   previewImageLink: string
   rating: number
   skills?: string[]
+  openCourse: (id: string) => void
 }
 
 const CoursePreview = ({
+  id = '',
   title = '',
   description = '',
   lessonsCount = 0,
   previewImageLink = '',
   rating = 0,
   skills = [],
+  openCourse = () => {},
 }: CoursePreviewProps) => {
   return (
     <Styled.CoursePreviewContainer>
@@ -64,7 +68,12 @@ const CoursePreview = ({
         </Styled.CoursePreviewDescription>
       </Styled.CoursePreviewInfo>
       <Styled.CoursePreviewButtonContainer>
-        <Button variant="contained" color="warning" size="large">
+        <Button
+          variant="contained"
+          color="warning"
+          size="large"
+          onClick={() => openCourse(id)}
+        >
           Details
         </Button>
       </Styled.CoursePreviewButtonContainer>
