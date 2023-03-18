@@ -8,11 +8,18 @@ export const CourseContainer = styled.div`
 
 export const CourseTitle = styled.h2`
     font-size: 26px;
+    @media (min-width: ${Breakpoints.XL}) {
+        font-size: 46px;
+    }
+`
+
+export const CourseTitleContainer = styled.div`
+    display: flex;
+    align-items: center;
     padding: 0 20px;
     margin: 20px 0;
     @media (min-width: ${Breakpoints.XL}) {
         padding: 0 60px;
-        font-size: 46px;
     }
 `
 

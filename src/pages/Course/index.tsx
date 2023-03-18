@@ -6,6 +6,9 @@ import Chip from '@mui/material/Chip'
 import Stack from '@mui/material/Stack'
 import Box from '@mui/material/Box'
 import LessonsList from 'src/components/LessonsList'
+import IconButton from '@mui/material/IconButton'
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew'
+import { NavLink } from 'react-router-dom'
 
 const Course = () => {
   const { course, isLoading } = useCourse()
@@ -14,7 +17,19 @@ const Course = () => {
 
   return (
     <Styled.CourseContainer>
-      <Styled.CourseTitle>{course.title}</Styled.CourseTitle>
+      <Styled.CourseTitleContainer>
+        <NavLink to="/">
+          <IconButton
+            aria-label="back button"
+            size="large"
+            color="warning"
+            sx={{ marginRight: '10px' }}
+          >
+            <ArrowBackIosNewIcon />
+          </IconButton>
+        </NavLink>
+        <Styled.CourseTitle>{course.title}</Styled.CourseTitle>
+      </Styled.CourseTitleContainer>
       <Styled.CourseCover>
         <Styled.CourseImage src={`${course.previewImageLink}/cover.webp`} />
       </Styled.CourseCover>
