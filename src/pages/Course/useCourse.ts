@@ -8,6 +8,6 @@ export const useCourse = () => {
 
     return {
         course: data,
-        isLoading
+        isLoading,
     }
 }

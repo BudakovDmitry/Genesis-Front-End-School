@@ -1,3 +1,7 @@
+import { API } from 'src/utils/constants'
+import { Endpoints } from 'src/utils/endpoints'
+import { RequestMethod } from 'src/types'
+
 export const get = async <T>(
   url: string,
   searchParams?: Record<string, string>,
@@ -10,12 +14,12 @@ export const get = async <T>(
 
   try {
 
-    const token = await fetch('http://api.wisey.app/api/v1/auth/anonymous?platform=subscriptions').then(res => res.json()).then(value => value.token)
+    const token = await fetch(`${API}${Endpoints.AUTH}`).then(res => res.json()).then(value => value.token)
 
     const res = searchParams
       ? await fetch(`${url}?${new URLSearchParams(searchParams)}`, options)
       : await fetch(url, {
-        method: 'GET',
+        method: RequestMethod.GET,
         headers: {
           'Authorization': `Bearer ${token}`
       }

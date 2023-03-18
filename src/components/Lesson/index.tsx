@@ -2,11 +2,10 @@ import * as Styled from 'src/components/Lesson/styles'
 import Accordion from '@mui/material/Accordion'
 import AccordionSummary from '@mui/material/AccordionSummary'
 import AccordionDetails from '@mui/material/AccordionDetails'
-import Typography from '@mui/material/Typography'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import { StatusLesson } from 'src/types'
-import { RefObject, useRef } from 'react'
 import ReactHlsPlayer from 'react-hls-player'
+import { useLesson } from 'src/components/Lesson/useLesson'
 
 type LessonTypeProps = {
   title: string
@@ -15,7 +14,6 @@ type LessonTypeProps = {
   link: string
   lessonNumber: number
   order: number
-  index: number
 }
 
 const Lesson = ({
@@ -25,15 +23,15 @@ const Lesson = ({
   link = '',
   order = 0,
   lessonNumber = 0,
-  index = 0,
 }: LessonTypeProps) => {
-  const playerRef = useRef() as RefObject<HTMLVideoElement>
+  const { expanded, handleChange, playerRef } = useLesson()
 
   return (
     <Accordion
       disableGutters
       disabled={status === StatusLesson.LOCKED}
-      expanded={index === 0}
+      expanded={expanded === `lesson${lessonNumber}`}
+      onChange={handleChange(`lesson${lessonNumber}`)}
     >
       <AccordionSummary
         expandIcon={<ExpandMoreIcon />}

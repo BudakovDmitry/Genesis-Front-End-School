@@ -53,3 +53,10 @@ export enum Breakpoints {
   XL = '1200px',
   XXL = '1400px' 
 }
+
+export enum RequestMethod {
+  GET = 'GET',
+  POST = 'POST',
+  PUT = 'PUT',
+  DELETE = 'DELETE'
+}
