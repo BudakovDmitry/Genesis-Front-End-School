@@ -5,7 +5,8 @@ import AccordionDetails from '@mui/material/AccordionDetails'
 import Typography from '@mui/material/Typography'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import { StatusLesson } from 'src/types'
-import { Player, BigPlayButton } from 'video-react'
+import { RefObject, useRef } from 'react'
+import ReactHlsPlayer from 'react-hls-player'
 
 type LessonTypeProps = {
   title: string
@@ -14,6 +15,7 @@ type LessonTypeProps = {
   link: string
   lessonNumber: number
   order: number
+  index: number
 }
 
 const Lesson = ({
@@ -23,9 +25,16 @@ const Lesson = ({
   link = '',
   order = 0,
   lessonNumber = 0,
+  index = 0,
 }: LessonTypeProps) => {
+  const playerRef = useRef() as RefObject<HTMLVideoElement>
+
   return (
-    <Accordion disableGutters disabled={status === StatusLesson.LOCKED}>
+    <Accordion
+      disableGutters
+      disabled={status === StatusLesson.LOCKED}
+      expanded={index === 0}
+    >
       <AccordionSummary
         expandIcon={<ExpandMoreIcon />}
         aria-controls="panel1a-content"
@@ -38,10 +47,15 @@ const Lesson = ({
         </Styled.LessonTitle>
       </AccordionSummary>
       <AccordionDetails>
-        <Player poster={`${previewImageLink}/${order}.webp`}>
-          <source src={link} />
-          <BigPlayButton position="center" />
-        </Player>
+        <ReactHlsPlayer
+          playerRef={playerRef}
+          src={link}
+          autoPlay={false}
+          controls={true}
+          width="100%"
+          height="auto"
+          poster={`${previewImageLink}/lesson-${order}.webp`}
+        />
       </AccordionDetails>
     </Accordion>
   )

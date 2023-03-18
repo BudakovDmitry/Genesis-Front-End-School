@@ -19,6 +19,7 @@ const LessonsList = ({ lessons = [] }: LessonsListProps) => {
           link={lesson.link}
           lessonNumber={index + 1}
           order={lesson.order}
+          index={index}
         />
       ))}
     </Styled.LessonsListContainer>

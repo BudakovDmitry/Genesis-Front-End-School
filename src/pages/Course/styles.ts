@@ -1,14 +1,19 @@
 import styled from 'styled-components'
 import { CourseRatingProps } from 'src/pages/Course/types'
+import { Breakpoints } from 'src/types'
 
 export const CourseContainer = styled.div`
-    padding: 60px 0;
+    padding: 10px 0 60px;
 `
 
 export const CourseTitle = styled.h2`
-    font-size: 46px;
-    padding: 0 60px;
+    font-size: 26px;
+    padding: 0 20px;
     margin: 20px 0;
+    @media (min-width: ${Breakpoints.XL}) {
+        padding: 0 60px;
+        font-size: 46px;
+    }
 `
 
 
@@ -16,7 +21,10 @@ export const CourseDescription = styled.p``
 
 
 export const CourseInfo = styled.div`
-    padding: 0 60px;
+    padding: 0 20px;
+    @media (min-width: ${Breakpoints.XL}) {
+        padding: 0 60px; 
+    }
 `
 
 export const CourseSkillsText = styled.span`
@@ -44,7 +52,11 @@ export const CourseRating = styled.div`
     margin-bottom: 15px;
     color: grey;
     font-weight: 700;
-    margin: 40px 0;
+    margin: 20px 0;
+
+    @media (min-width: ${Breakpoints.XL}) {
+        margin: 40px 0;
+    }
 `
 
 

@@ -45,3 +45,11 @@ export enum StatusLesson {
   UNLOCKED = 'unlocked',
   LOCKED = 'locked'
 }
+
+export enum Breakpoints {
+  SM = '576px',
+  MD = '768px',
+  LG = '992px',
+  XL = '1200px',
+  XXL = '1400px' 
+}

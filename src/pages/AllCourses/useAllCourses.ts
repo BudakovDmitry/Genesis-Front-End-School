@@ -16,10 +16,10 @@ export const useAllCourses = () => {
 
   const sliceCourses = (): void => {
     if (currentPage === 1) {
-      setSlicedCourses(data?.courses.slice(0, ITEMS_PER_PAGE))
+      setSlicedCourses(data?.courses.reverse().slice(0, ITEMS_PER_PAGE))
     }
     if (currentPage !== 1) {
-      setSlicedCourses(data?.courses.slice(ITEMS_PER_PAGE * (currentPage - 1), ITEMS_PER_PAGE * currentPage))
+      setSlicedCourses(data?.courses.reverse().slice(ITEMS_PER_PAGE * (currentPage - 1), ITEMS_PER_PAGE * currentPage))
     }
   }
 
@@ -32,7 +32,7 @@ export const useAllCourses = () => {
   }, [currentPage])
 
   return {
-    courses: slicedCourses ? slicedCourses : data?.courses.slice(0, ITEMS_PER_PAGE),
+    courses: slicedCourses ? slicedCourses : data?.courses.reverse().slice(0, ITEMS_PER_PAGE),
     countCourses: data?.courses.length,
     isLoading,
     ITEMS_PER_PAGE,

@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { CourseRatingProps } from 'src/components/CoursePreview/types'
+import { Breakpoints } from 'src/types'
 
 export const CoursePreviewContainer = styled.div`
     box-shadow: 0 4px 30px rgba(0,0,0,.1);
@@ -10,7 +11,7 @@ export const CoursePreviewContainer = styled.div`
     flex-direction: column;
     padding: 18px;
 
-    @media (min-width: 1200px) {
+    @media (min-width: ${Breakpoints.XL}) {
         flex-direction: row;
     }
 `
@@ -18,7 +19,7 @@ export const CoursePreviewContainer = styled.div`
 export const CoursePreviewCover = styled.div`
     flex: 0 0 100%;
     max-width: 100%;
-    @media (min-width: 1200px) {
+    @media (min-width: ${Breakpoints.XL}) {
         flex: 0 0 30%;
         max-width: 30%;
     }
@@ -33,7 +34,7 @@ export const CoursePreviewInfo = styled.div`
     max-width: 100%;
     padding: 10px 20px 10px 0;
     margin-bottom: 15px;
-    @media (min-width: 1200px) {
+    @media (min-width: ${Breakpoints.XL}) {
         flex: 0 0 60%;
         max-width: 60%;
         padding: 10px 20px 10px 40px;
@@ -48,9 +49,13 @@ export const CoursePreviewTitle = styled.h3`
 export const CoursePreviewRating = styled.div`
     display: flex;
     align-items: center;
+    justify-content: center;
     margin-bottom: 15px;
     color: grey;
     font-weight: 700;
+    @media (min-width: ${Breakpoints.XL}) {
+        justify-content: start;
+    }
 `
 
 export const CoursePreviewRatingText = styled.span<CourseRatingProps>`
@@ -72,7 +77,7 @@ export const CoursePreviewButtonContainer = styled.div`
     justify-content: flex-end;
     flex: 0 0 100%;
     max-width: 100%;
-    @media (min-width: 1200px) {
+    @media (min-width: ${Breakpoints.XL}) {
         flex: 0 0 10%;
         max-width: 10%;
     }

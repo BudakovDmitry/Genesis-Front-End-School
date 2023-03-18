@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Breakpoints } from 'src/types'
 
 export const AllCoursesContainer = styled.div`
     width: 100%;
@@ -7,13 +8,21 @@ export const AllCoursesContainer = styled.div`
 
 export const AllCoursesTitle = styled.h1`
     text-align: center;
-    margin: 50px 0 20px;
+    margin: 20px 0 10px;
+    @media (min-width: ${Breakpoints.XL}) {
+        margin: 50px 0 20px;
+    }
+
 `
 
 export const CoursesPreview = styled.div`
     display: flex;
     flex-direction: column;
     gap: 30px;
-    padding: 40px 40px;
+    padding: 20px 20px;
     overflow-y: auto;
+
+    @media (min-width: ${Breakpoints.XL}) {
+        padding: 40px 40px;
+    }
 `
