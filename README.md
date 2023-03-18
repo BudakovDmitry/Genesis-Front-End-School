@@ -2,6 +2,8 @@
 
 Open for view: https://budakovdmitry.github.io/Genesis-Front-End-School/
 
+Implemented desktop and mobile versions
+
 ## Tech Stack
 
 **Client:** React, TypeScript, MUI, SWR
