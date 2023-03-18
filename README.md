@@ -6,7 +6,7 @@ Implemented desktop and mobile versions
 
 ## Tech Stack
 
-**Client:** React, TypeScript, MUI, SWR
+**Client:** React, TypeScript, MUI, Styled-Components, SWR
 
 ## Install for test
 
